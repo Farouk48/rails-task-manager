@@ -1,0 +1,20 @@
+<h1> My Tasks </h1>
+<ul>
+    <% @tasks.each do |task| %>
+      <li>
+        <% if task.completed %>
+          <%= image_tag "https://image.flaticon.com/icons/png/512/130/130880.png", :class=>"img" %>
+          <% else %>
+          <%= image_tag "https://image.flaticon.com/icons/png/512/122/122128.png", :class=>"img" %>
+          <% end %>
+        <%= link_to task.title, task_path(task) %>
+        <%= link_to image_tag("https://fr.seaicons.com/wp-content/uploads/2015/11/trash-icon1.png", border: 0, :class=>"delete-img"), task_path(task), method: :delete, data: { confirm: "Are you sure?" } %>
+      </li>
+    <% end %>
+  </ul>
+
+<p><%= link_to " ➕ Add a new task", new_task_path, :class => "add" %></p>
+
+
+
+
